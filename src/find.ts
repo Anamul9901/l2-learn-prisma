@@ -40,20 +40,31 @@ const main = async () => {
 
 
     // find one with only uniqe key. like Id
-    const findUnique = await prisma.post.findUnique({
-        where: {
-            id: 7
-        }
-    })
+    // const findUnique = await prisma.post.findUnique({
+    //     where: {
+    //         id: 18
+    //     }
+    // })
+    // console.log({ findUnique })
 
     // if data not find then give me a error.
-    const findUniqueOrThrowError = await prisma.post.findFirstOrThrow({
-        where: {
-            id: 7
+    // const findUniqueOrThrowError = await prisma.post.findFirstOrThrow({
+    //     where: {
+    //         id: 7
+    //     }
+    // })
+    // console.log({findUniqueOrThrowError})
+
+
+    const findWithLimitadeData = await prisma.post.findMany({
+        // where: {
+        //     id: 18
+        // },
+        select: {
+            title: true, content: true
         }
     })
-    console.log({findUniqueOrThrowError})
-
+    console.log({ findWithLimitadeData })
 }
 
 main();

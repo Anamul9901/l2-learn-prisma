@@ -15,17 +15,34 @@ const updates = async () => {
     // })
     // console.log(singleUpdate)
 
-    const updateMany = await prisma.post.updateMany({
+    // const updateMany = await prisma.post.updateMany({
+    //     where: {
+    //         // id: 1
+    //         title: "Title 2"
+    //     },
+    //     data: {
+    //         // title: "updated title"
+    //         published: true
+    //     }
+    // })
+    // console.log(updateMany)
+
+
+    // if data exist then update, if data not exist then create. It's means upsert.
+    const upsertData = await prisma.post.upsert({
         where: {
-            // id: 1
-            title: "Title 2"
+            id: 18
         },
-        data: {
-            // title: "updated title"
-            published: true
+        update: {
+            title: "Updated title",
+            authorName: "Anamul"
+        },
+        create: {
+            title: "Title 1",
+            content: "content 1"
         }
     })
-    console.log(updateMany)
+    console.log(upsertData)
 }
 
 updates();
