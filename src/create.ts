@@ -35,7 +35,7 @@ const main = async () => {
         ]
     })
 
-    console.log(createMany)
+    console.log(createMany);
 }
  
 main();
