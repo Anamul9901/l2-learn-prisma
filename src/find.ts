@@ -56,6 +56,7 @@ const main = async () => {
     // console.log({findUniqueOrThrowError})
 
 
+    // select query find, update, delete, create sob jigy use kora jai
     const findWithLimitadeData = await prisma.post.findMany({
         // where: {
         //     id: 18
